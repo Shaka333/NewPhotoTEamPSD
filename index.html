@@ -11,8 +11,8 @@
         <div class="team-grid" id="team-grid"></div>
     </div>
 
-    <!-- Cargar psd.js desde una copia local -->
-    <script src="https://cdn.jsdelivr.net/npm/psd.js@3.4.0/dist/psd.min.js"></script>
+    <!-- Cargar la copia local de psd.js -->
+    <script src="psd.min.js"></script>
 
     <!-- Cargar jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -46,11 +46,9 @@
             }
 
             teamMembers.forEach(member => {
-                const memberDiv = $(`
-                    <div class="team-member" data-member="${member}">
-                        <div class="hover-name">${member}</div>
-                    </div>
-                `);
+                const memberDiv = $(`<div class="team-member" data-member="${member}">
+                    <div class="hover-name">${member}</div>
+                </div>`);
                 loadPsdImages(member, memberDiv);
                 $("#team-grid").append(memberDiv);
             });
