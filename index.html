@@ -1,0 +1,23 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        const baseGitHubURL = "https://raw.githubusercontent.com/Shaka333/NewPhotoTEamPNG/main";
+        const teamMembers = [
+            "KarenAlejandra", "Leonardo", "MillerTorres", "MonicaG", "OscarCubillos"
+        ];
+        const directions = ["default", "looking-left", "looking-up-left", "looking-up", 
+                            "looking-up-right", "looking-down-left", "looking-down",
+                            "looking-down-right", "looking-right"];
+        
+        teamMembers.forEach(member => {
+            const container = $('<div class="team-member"></div>');
+            directions.forEach(dir => {
+                const imgURL = `${baseGitHubURL}/${member}/${dir}.png`;
+                const img = $(`<img src="${imgURL}" class="${dir}" style="display:none;">`);
+                container.append(img);
+            });
+            container.append(`<div class="hover-name">${member}</div>`);
+            $('#team-grid').append(container);
+        });
+    });
+</script>
